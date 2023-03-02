@@ -1,4 +1,10 @@
-{
+{  "author": "matias",
+    "version": "1.0.0",
+    "main": "server.js",
+    "engines": {
+     "node": "16.19.0",
+     "npm": "8.19.3"
+},
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cookie-parser": "^1.4.6",
