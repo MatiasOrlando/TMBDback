@@ -1,9 +1,9 @@
 // Configuración del server
 const express = require("express");
 const app = express();
-const db = require("./api/db");
-const models = require("./api/models");
-const router = require("./api/routes/index");
+const db = require("./db/");
+const models = require("./models");
+const router = require("./routes/index");
 const cors = require("cors");
 const cookies = require("cookie-parser");
 
