@@ -31,6 +31,6 @@ app.use("/", router);
 
 db.sync({ force: false }).then(() => {
   app.listen(process.env.PORT, () =>
-    console.log(`SERVER RUNNING TMDB PROJECT : ${process.env.PORT}`)
+    console.log(`SERVER RUNNING TMDB : ${process.env.PORT}`)
   );
 });
