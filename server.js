@@ -10,20 +10,27 @@ require("dotenv").config();
 
 app.use(cookies());
 
+const corsOptions = {
+  origin: "*",
+  credentials: true,
+  methods: ["GET", "POST", "DELETE", "OPTIONS"],
+};
+
 app.use(
-  cors({
-    // Si aún no tenes deployado tu front en origin va la url local.
-    // Una vez que se deploye el front acá va esa url que te entrega.
-    origin: "https://tmdb-front-five.vercel.app/",
-    methods: ["GET", "POST", "DELETE", "OPTIONS"],
-    credentials: true,
-  })
+  // cors({
+  //   // Si aún no tenes deployado tu front en origin va la url local.
+  //   // Una vez que se deploye el front acá va esa url que te entrega.
+  //   origin: "https://tmdb-front-five.vercel.app/",
+  //   methods: ["GET", "POST", "DELETE", "OPTIONS"],
+  //   credentials: true,
+  // })
+  cors(corsOptions)
 );
 app.use(express.json());
 app.use("/", router);
 
 db.sync({ force: false }).then(() => {
   app.listen(process.env.PORT, () =>
-    console.log("SERVER RUNNING TMDB PROJECT")
+    console.log(`SERVER RUNNING TMDB PROJECT : ${process.env.PORT}`)
   );
 });
