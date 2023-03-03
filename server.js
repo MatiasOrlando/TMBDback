@@ -6,6 +6,7 @@ const models = require("./api/models");
 const router = require("./api/routes/index");
 const cors = require("cors");
 const cookies = require("cookie-parser");
+require("dotenv").config();
 
 app.use(cookies());
 
@@ -22,5 +23,5 @@ app.use(express.json());
 app.use("/", router);
 
 db.sync({ force: false }).then(() => {
-  app.listen(5432, () => console.log("Server ON PORT: 5432"));
+  app.listen(process.env.PORT, () => console.log("Server RUNNING"));
 });
