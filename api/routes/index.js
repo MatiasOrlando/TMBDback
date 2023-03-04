@@ -12,7 +12,7 @@ router.post("/addFavorites", moviesController.addFavorites);
 router.delete("/removeFavorites", moviesController.removeFavorites);
 router.get("/getAllFavs", moviesController.getAllFavs);
 
-router.get("/", (res, req) => {
+router.get("/", (req, res) => {
   res.send("succesfully deployed");
 });
 
