@@ -12,4 +12,8 @@ router.post("/addFavorites", moviesController.addFavorites);
 router.delete("/removeFavorites", moviesController.removeFavorites);
 router.get("/getAllFavs", moviesController.getAllFavs);
 
+router.get("/", (res, req) => {
+  res.send("succesfully deployed");
+});
+
 module.exports = router;
