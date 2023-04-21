@@ -16,10 +16,10 @@ Display favorites list: This feature allows users to view their favorites list, 
 
 
 <br>
+
 ## Deploy
 
 Link <a href="https://tmdb-front-five.vercel.app"/>TMDB</a>
-
 
 
 ## Installation :hammer:
