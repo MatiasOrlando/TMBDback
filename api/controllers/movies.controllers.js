@@ -1,5 +1,6 @@
 const Movie = require("../models/Movie");
 const User = require("../models/User");
+const { Op } = require("sequelize");
 
 const addFavorites = async (req, res) => {
   try {
@@ -28,13 +29,14 @@ const removeFavorites = async (req, res) => {
   try {
     await Movie.destroy({
       where: {
-        id,
+        [Op.or]: [{ id }, { movieId: id }],
       },
       include: { model: User },
     });
     res.status(204).send(`Deleted from Favorites`);
   } catch (error) {
     console.log("service error", error);
+    res.status(500).send("Internal server error");
   }
 };
 

@@ -24,6 +24,11 @@ User.init(
         isEmail: true,
       },
     },
+    profileImg: {
+      type: S.STRING,
+      defaultValue:
+        "https://www.pngall.com/wp-content/uploads/5/Profile-PNG-File.png",
+    },
     salt: {
       type: S.STRING,
     },

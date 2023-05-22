@@ -35,4 +35,28 @@ const logOut = (req, res) => {
   res.clearCookie("token").status(204).send(`User logged out`);
 };
 
-module.exports = { register, logIn, me, logOut };
+const infoUser = async (req, res) => {
+  const { email } = req.query;
+  try {
+    const user = await User.findOne({ where: { email } });
+    if (!user) return res.status(404).send(`Invalid request, user not found`);
+    return res.status(200).send(user);
+  } catch (error) {
+    console.error("error");
+  }
+};
+
+const updateImg = async (req, res) => {
+  const { email } = req.query;
+  const { profileImg } = req.body;
+  try {
+    const [updatedRows, updatedUser] = await User.update(
+      { profileImg },
+      { where: { email }, returning: true }
+    );
+    return res.status(204).send(updatedUser);
+  } catch (error) {
+    console.error("error");
+  }
+};
+module.exports = { register, logIn, me, logOut, infoUser, updateImg };
