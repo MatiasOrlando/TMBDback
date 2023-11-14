@@ -13,7 +13,7 @@ app.use(cookies());
 app.use(
   cors({
     origin: "https://tmdb-front-five.vercel.app",
-    methods: ["GET", "POST", "DELETE", "OPTIONS"],
+    methods: ["GET", "POST", "DELETE", "OPTIONS", "PUT"],
     credentials: true,
   })
 );
