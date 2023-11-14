@@ -1,7 +1,7 @@
 require("dotenv").config();
 const Sequelize = require("sequelize");
 const db = new Sequelize(
-  "db_tmdb",
+  process.env.DB,
   process.env.USER_NAME,
   process.env.PASSWORD,
   {
