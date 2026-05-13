@@ -18,6 +18,11 @@ app.use(
   })
 );
 app.use(express.json());
+
+app.get("/health", (req, res) => {
+  res.json({ status: "ok" });
+});
+
 app.use("/", router);
 
 db.sync({ force: false }).then(() => {
